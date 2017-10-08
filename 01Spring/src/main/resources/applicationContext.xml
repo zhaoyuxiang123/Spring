@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+
+ http://www.springframework.org/schema/beans/spring-beans.xsd
+
+">
+    <!--p注入-->
+   <bean id="service" class="cn.happy.service.HappyServices" p:age="12" p:info="hhhhh">
+      <!--  <property name="info" value="哈哈哈"></property>
+        <property name="age" value="12"></property>-->
+    </bean>
+    <!--构造注入-->
+    <bean id="stu" class="cn.happy.service.HappyServices">
+        <constructor-arg index="0" value="1"></constructor-arg>
+        <constructor-arg index="1" value="nini"></constructor-arg>
+    </bean>
+
+
+    <bean id="pape" class="cn.happy.day02.paper.B5Page"></bean>
+    <bean id="ink" class="cn.happy.day02.ink.ColorInk">
+    </bean>
+    <!--HappYService对象-->
+    <bean id="printer" class="cn.happy.day02.printer.Print">
+        <property name="pape" ref="pape"></property>
+        <property name="ink" ref="ink"></property>
+    </bean>
+
+</beans>

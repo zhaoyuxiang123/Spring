@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+
+
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+
+ http://www.springframework.org/schema/beans/spring-beans.xsd
+
+">
+    <!--HappYService对象-->
+   <bean id="collection" class="cn.happy.jihe.Mycollection">
+       <property name="array">
+           <array>
+           <value>李小龙</value>
+           <value>称哦</value>
+           </array>
+       </property>
+       <property name="list">
+           <array>
+               <value>李小龙List</value>
+               <value>称哦List</value>
+           </array>
+       </property>
+       <property name="set">
+           <set>
+               <value>李小龙Set</value>
+               <value>称哦Set</value>
+           </set>
+       </property>
+       <property name="properties">
+          <props>
+              <prop key="001">hhhprop</prop>
+              <prop key="002">fffprop</prop>
+          </props>
+       </property>
+       <property name="map">
+           <map>
+               <entry key="001"><value>hhhmap</value></entry>
+               <entry key="002"><value>fffmap</value></entry>
+           </map>
+       </property>
+
+   </bean>
+</beans>

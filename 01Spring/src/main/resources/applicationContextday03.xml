@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+
+        xmlns:aop="http://www.springframework.org/schema/aop"
+        xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd
+
+          http://www.springframework.org/schema/aop
+         http://www.springframework.org/schema/aop/spring-aop.xsd
+
+">
+    <!--HappYService对象-->
+    <bean id="someDao" class="cn.happy.day03.dao.SomeDaoImpl">
+    </bean>
+
+
+    <bean id="someService" class="cn.happy.day03.service.SomeServiceImpl">
+        <property name="dao" ref="someDao"></property>
+    </bean>
+
+    <!--HappYService对象-->
+  <!--  <bean id="beforeAdvice" class="cn.happy.day03.aop.MyBeforeAdvice">-->
+    <bean id="afterAvice" class="cn.happy.day03.aop.MyafterAdvice">
+
+    </bean>
+    <aop:config>
+        <aop:pointcut id="mypointcut" expression="execution(* *..dao.*.*(..))"></aop:pointcut>
+        <aop:advisor advice-ref="afterAvice" pointcut-ref="mypointcut"></aop:advisor>
+    </aop:config>
+
+</beans>
